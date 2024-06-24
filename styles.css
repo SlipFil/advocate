@@ -1,0 +1,474 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto";
+}
+html {
+  scroll-behavior: smooth;
+}
+.hidden {
+  opacity: 0;
+  /* Начальное значение прозрачности */
+  transform: translateY(20px);
+  /* Начальное значение положения */
+  transition: opacity 1s ease, transform 1s ease;
+  /* Плавные переходы */
+}
+/* Стили для видимого элемента */
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+body {
+  position: relative;
+}
+body .container {
+  margin: 0 auto;
+  margin-left: 10%;
+  margin-right: 10%;
+  box-sizing: border-box;
+}
+body header {
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  padding-left: 15%;
+  padding-right: 15%;
+  justify-content: space-between;
+  width: 100%;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+  position: absolute;
+  box-sizing: border-box;
+}
+body header ul {
+  margin: 0 auto;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+body header ul li {
+  margin-right: 15px;
+  position: relative;
+  /* Необходимо для позиционирования псевдоэлемента */
+  padding-bottom: 5px;
+  /* Добавляет немного пространства для подчёркивания */
+  transition: color 0.5s;
+}
+body header ul li :hover::after {
+  width: 100%;
+}
+body header ul li :hover {
+  color: #eeeeee;
+  transform: scale(1.1);
+}
+body header ul li ::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #ececec;
+  /* Цвет подчёркивания */
+  transition: width 0.3s ease-in-out;
+  /* Плавное появление подчёркивания */
+}
+body header ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-family: "Roboto";
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+body .main {
+  background-image: url("images/photo.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 70vh;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: "Roboto";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .main .main_content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+}
+body .main .main_content h1 {
+  font-size: 40px;
+}
+body .main .main_content div {
+  font-size: 23px;
+  max-width: 40%;
+  font-weight: 300;
+  line-height: 1.35;
+}
+body .main .circle-arrow-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  margin-top: 30px;
+  cursor: pointer;
+  animation: moveUpDown 2s infinite;
+  position: relative;
+  transition: transform 1s ease;
+}
+body .main .circle-arrow-container:hover {
+  transform: scale(2);
+}
+body .main .circle-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(128, 128, 128, 0.308);
+  border-radius: 50%;
+  position: relative;
+}
+body .main .circle-arrow::before {
+  content: "";
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 6px;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+body .about {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  position: relative;
+  background-color: #c4c4c4;
+}
+body .about .bgLogo {
+  position: absolute;
+  filter: brightness(0.1);
+  /* Увеличить яркость на 20% */
+  filter: contrast(0.1);
+  /* Увеличить контраст на 50% */
+  right: 15%;
+  top: 50px;
+  width: 700px;
+  height: 700px;
+  opacity: 0.07;
+}
+body .about .bg {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: -webkit-linear-gradient(90deg, rgba(255, 255, 255, 0), #d9d9d9 19%, #d9d9d9 81%);
+  background: -moz-linear-gradient(90deg, rgba(255, 255, 255, 0), #d9d9d9 19%, #d9d9d9 81%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 19%, rgba(217, 217, 217, 0.775) 70%, #d9d9d9 91%);
+}
+body .about .about_image {
+  max-height: 100%;
+  box-shadow: inset 0 0 15px 15px rgba(0, 0, 0, 0.6);
+}
+body .about .iabout_image ::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -10px;
+  /* Размер размытия, можно регулировать */
+  bottom: 0;
+  width: 20px;
+  /* Ширина размытой области */
+  background-image: linear-gradient(to left, rgba(255, 255, 255, 0), #ffffff);
+  /* Градиент для размытия */
+  filter: blur(10px);
+  /* Размытие */
+}
+body .about .about_text {
+  color: #000;
+  max-width: 40%;
+  margin-left: 30px;
+  margin-bottom: 70px;
+  z-index: 999;
+}
+body .about .about_text h3 {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+body .about .about_text p {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 300;
+}
+body .type {
+  position: relative;
+  background-color: #dcdbdb;
+  padding-bottom: 40px;
+}
+body .type .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .type h2 {
+  width: 50%;
+  font-size: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+body .type .type_cards {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+}
+body .type .type_cards .type_card {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 2px #182347;
+  box-sizing: border-box;
+  padding: 20px;
+  padding-left: 30px;
+  padding-bottom: 5px;
+  max-width: 30%;
+  min-height: 555px;
+}
+body .type .type_cards .type_card img {
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  margin-bottom: 10px;
+}
+body .type .type_cards .type_card h3 {
+  margin-bottom: 15px;
+  line-height: 1.5;
+  font-size: 22px;
+  text-align: center;
+}
+body .type .type_cards .type_card ul li {
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+body .type a {
+  text-decoration: none;
+  color: #fff;
+  margin-top: 30px;
+  transition: transform 1s ease;
+}
+body .type a:hover {
+  transform: scale(1.1);
+}
+body .type a .toForm {
+  background-color: #182347;
+  padding: 20px;
+  border-radius: 30px;
+  font-size: 20px;
+}
+body .practice {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+body .practice .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+body .practice h3 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+body .practice .practice_cards {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+body .practice .practice_cards .practice_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .practice .practice_cards .practice_card .value {
+  font-size: 45px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+body .practice .practice_cards .practice_card .value span {
+  font-size: 22px;
+  font-weight: 500;
+}
+body .team {
+  background-color: #dcdbdb;
+}
+body .team .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .team h3 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  margin-top: 30px;
+}
+body .team .team_cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .team .team_cards .team_card {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+body .team .team_cards .team_card .avatar {
+  background-image: url(images/avatar1.jpg);
+  width: 200px;
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 20px;
+  background-color: #007bff;
+  /* Цвет фона блока */
+  -webkit-mask-image: radial-gradient(#000000, rgba(0, 0, 0, 0));
+  /* Прозрачная маска с линейным градиентом */
+  mask-image: radial-gradient(#000000 70%, rgba(0, 0, 0, 0));
+}
+body .team .team_cards .team_card .avatar2 {
+  background-image: url(images/avatar2.jpg);
+  margin-left: 20px;
+}
+body .team .team_cards .team_card img {
+  margin-right: 20px;
+}
+body .team .team_cards .team_card .personInfo {
+  max-width: 40%;
+}
+body .team .team_cards .team_card .personInfo h4 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+body .team .team_cards .team_card .personInfo p {
+  font-size: 18px;
+}
+body .team .team_cards .reverse {
+  flex-direction: row-reverse;
+}
+body .team .team_cards .reverse img {
+  margin-right: 0;
+  margin-left: 20px;
+}
+body .team .team_cards .reverse .personInfo {
+  text-align: right;
+}
+body form {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 40px;
+}
+body form h3 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+body form p {
+  width: 30%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+body form input {
+  border-radius: 0;
+  border: solid 1px gray;
+  padding: 10px;
+  font-size: 14px;
+  width: 40%;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+body form textarea {
+  width: 40%;
+  min-height: 220px;
+  padding: 10px;
+  font-size: 14px;
+  box-sizing: border-box;
+  border-radius: 0;
+  margin-bottom: 20px;
+}
+body form button {
+  padding: 18px;
+  border-radius: 30px;
+  font-size: 20px;
+  background-color: #182347;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 1s ease;
+}
+body form button:hover {
+  transform: scale(1.1);
+}
+body footer {
+  background-color: #182347;
+  color: #fff;
+  padding: 30px;
+}
+body footer .container .footer_content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+body footer .container .footer_content .footer_text h4 {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+body footer .container .footer_content .footer_text .textItem {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+body footer .container .footer_content .footer_text .textItem img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+@keyframes moveUpDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  45% {
+    transform: translateY(-5px);
+  }
+}
