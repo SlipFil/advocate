@@ -22,6 +22,34 @@ html {
 body {
   position: relative;
 }
+body .side-menu {
+  padding: 30px;
+  padding-top: 60px;
+  position: absolute;
+  z-index: 999;
+  left: -300px;
+  /* Начальное положение за пределами экрана */
+  width: 250px;
+  height: 100%;
+  box-sizing: border-box;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s ease;
+  /* Плавное появление меню */
+  background-color: rgba(0, 0, 0, 0.4);
+}
+body .side-menu ul li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+body .side-menu ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+}
+body .side-menu.active {
+  left: 0;
+  /* Отображение сайд меню при активации */
+}
 body .container {
   margin: 0 auto;
   margin-left: 10%;
@@ -41,6 +69,22 @@ body header {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
   position: absolute;
   box-sizing: border-box;
+  z-index: 999;
+}
+body header .burger-icon {
+  position: absolute;
+  right: 55px;
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+body header .burger-icon .line {
+  width: 25px;
+  height: 3px;
+  background-color: #ffffff;
+  margin: 3px 0;
+  transition: transform 0.3s ease;
+  /* Плавное изменение анимации */
 }
 body header ul {
   margin: 0 auto;
@@ -99,6 +143,7 @@ body .main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 body .main .main_content {
   display: flex;
@@ -122,10 +167,10 @@ body .main .circle-arrow-container {
   align-items: center;
   width: 60px;
   height: 60px;
-  margin-top: 30px;
+  position: absolute;
+  bottom: 30px;
   cursor: pointer;
   animation: moveUpDown 2s infinite;
-  position: relative;
   transition: transform 1s ease;
 }
 body .main .circle-arrow-container:hover {
@@ -254,8 +299,8 @@ body .type .type_cards .type_card {
   padding: 20px;
   padding-left: 30px;
   padding-bottom: 5px;
-  max-width: 30%;
-  min-height: 555px;
+  max-width: 32%;
+  min-height: 580px;
 }
 body .type .type_cards .type_card img {
   border-radius: 50%;
@@ -381,6 +426,7 @@ body .team .team_cards .team_card .personInfo p {
 }
 body .team .team_cards .reverse {
   flex-direction: row-reverse;
+  top: -60px;
 }
 body .team .team_cards .reverse img {
   margin-right: 0;
@@ -470,5 +516,219 @@ body footer .container .footer_content .footer_text .textItem img {
   }
   45% {
     transform: translateY(-5px);
+  }
+}
+@media screen and (max-width: 1200px) {
+  .type h3 {
+    line-height: 1.1 !important;
+    font-size: 18px !important;
+  }
+  .type li {
+    margin-bottom: 8px !important;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .container {
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+  }
+  .main {
+    position: relative;
+  }
+  .main .main_content h1 {
+    font-size: 30px !important;
+  }
+  .main .main_content div {
+    font-size: 20px !important;
+  }
+  .main .circle-arrow-container {
+    position: absolute !important;
+    margin-top: 0 !important;
+    bottom: 30px;
+  }
+  .reverse {
+    top: 0 !important;
+    margin-top: 15px;
+  }
+  .personInfo {
+    max-width: 60% !important;
+  }
+  form {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 40px;
+  }
+  form h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  form p {
+    width: 65% !important;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  form input {
+    border-radius: 0;
+    border: solid 1px gray;
+    padding: 10px;
+    font-size: 14px;
+    width: 65% !important;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  form textarea {
+    width: 65% !important;
+  }
+  form button {
+    padding: 18px;
+    border-radius: 30px;
+    font-size: 20px;
+    background-color: #182347;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 1s ease;
+  }
+  form button:hover {
+    transform: scale(1.1);
+  }
+}
+@media screen and (max-width: 880px) {
+  header {
+    font-size: 14px !important;
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+  }
+  .about {
+    height: auto !important;
+  }
+  .about .about_image {
+    max-width: 50% !important;
+  }
+  .about .about_text {
+    margin-bottom: 20px !important;
+  }
+  .about .about_text h3 {
+    font-size: 24px !important;
+  }
+  .about .about_text p {
+    font-size: 16px !important;
+  }
+  .type .type_cards {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .type .type_cards .type_card {
+    max-width: none !important;
+    width: 100% !important;
+    min-height: auto !important;
+    margin-bottom: 20px;
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+  }
+  .type .type_cards .type_card ul {
+    align-self: flex-start;
+  }
+  .team {
+    padding-bottom: 30px !important;
+  }
+  footer .footer_content {
+    flex-direction: column-reverse !important;
+    align-items: center;
+  }
+  footer .footer_content .footer_text {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 435px) {
+  header {
+    padding: 20px !important;
+  }
+  header ul {
+    display: none !important;
+  }
+  header .burger-icon {
+    display: flex !important;
+  }
+  body .main {
+    padding-top: 55vh;
+  }
+  body .about {
+    padding-top: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+  body .about .bg {
+    opacity: 0.1;
+  }
+  body .about .about_image {
+    max-width: none;
+    margin-bottom: 20px;
+  }
+  body .about .about_text {
+    max-width: none;
+  }
+  body .type .container h2 {
+    text-align: center;
+    width: 70%;
+    font-size: 24px;
+  }
+  body .main_content {
+    flex-direction: column !important;
+  }
+  body .main_content h1 {
+    margin-bottom: 40px !important;
+  }
+  body .main_content div {
+    max-width: 60% !important;
+  }
+  body .practice .slides {
+    left: -300px;
+  }
+  body .practice .slider {
+    width: 300px;
+    height: 400px;
+  }
+  body .practice .slider .wrapper {
+    width: 300px;
+    height: 400px;
+  }
+  body .practice .slider .wrapper .slide {
+    width: 300px;
+    height: 400px;
+  }
+  body .practice .practice_card {
+    align-items: center;
+  }
+  body .practice .practice_card .description {
+    text-align: center;
+    font-size: 14px;
+  }
+  body .practice .value {
+    font-size: 20px !important;
+    text-align: center;
+  }
+  body .practice .value span::after {
+    content: "\A";
+    white-space: pre;
+  }
+  body .team .team_cards .team_card {
+    flex-direction: column;
+    align-items: center;
+  }
+  body .team .team_cards .team_card .avatar {
+    background-color: #dcdbdb;
+    margin-bottom: 20px;
+  }
+  body .team .team_cards .team_card .personInfo {
+    max-width: none !important;
+  }
+  iframe {
+    width: 100% !important;
+    margin: 0 auto;
   }
 }

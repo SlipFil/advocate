@@ -154,3 +154,12 @@ window.addEventListener("scroll", function () {
 document.addEventListener("DOMContentLoaded", function () {
   addVisibleClass();
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const burgerIcon = document.getElementById("burger-icon");
+  const sideMenu = document.getElementById("side-menu");
+
+  burgerIcon.addEventListener("click", function () {
+    sideMenu.classList.toggle("active"); // Переключаем класс active для открытия/закрытия сайд меню
+  });
+});
