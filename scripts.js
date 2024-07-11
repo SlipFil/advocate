@@ -163,3 +163,6 @@ document.addEventListener("DOMContentLoaded", function () {
     sideMenu.classList.toggle("active"); // Переключаем класс active для открытия/закрытия сайд меню
   });
 });
+
+
+

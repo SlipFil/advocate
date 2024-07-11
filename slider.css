@@ -39,7 +39,7 @@
 }
 
 .slider.loaded .slide:nth-child(2) {
-  background-image: url(./images/sert1.png);
+  background-image: url(./images/sert10.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -69,13 +69,49 @@
   background-position: center;
 }
 .slider.loaded .slide:nth-child(4) {
-  background-image: url(./images/sert6.png);
+  background-image: url(./images/sert12.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
 }
 .slider.loaded .slide:nth-child(5) {
   background-image: url(./images/sert7.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.slider.loaded .slide:nth-child(8) {
+  background-image: url(./images/sert8.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.slider.loaded .slide:nth-child(9) {
+  background-image: url(./images/sert9.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.slider.loaded .slide:nth-child(10) {
+  background-image: url(./images/sert2.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.slider.loaded .slide:nth-child(11) {
+  background-image: url(./images/sert11.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.slider.loaded .slide:nth-child(12) {
+  background-image: url(./images/sert6.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.slider.loaded .slide:nth-child(13) {
+  background-image: url(./images/sert.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
